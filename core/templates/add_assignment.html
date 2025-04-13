@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Assignment</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Outer Centered Container -->
+    <div class="container">
+        <!-- Header -->
+        <h1 class="form-title">Add Assignment</h1>
+
+        <!-- Display Error or Success Messages -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message {{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Add Assignment Form -->
+        <form method="POST" id="add-assignment-form">
+            {% csrf_token %}
+
+            <!-- Title Field -->
+            <input type="text" id="title" name="title" placeholder="Enter assignment title" required>
+            <p class="error-message" id="title-error"></p>
+
+            <!-- Due Date Field -->
+            <input type="date" id="due_date" name="due_date" required>
+            <p class="error-message" id="due-date-error"></p>
+
+            <!-- Priority Field -->
+            <select id="priority" name="priority" required>
+                <option value="" disabled selected>Select priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <p class="error-message" id="priority-error"></p>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit">Add Assignment</button>
+        </form>
+
+        <!-- Assignments Section -->
+        <div class="assignments-container">
+            <h2 class="assignments-header">Your Assignments</h2>
+            {% if assignments %}
+                <ul class="assignments-list">
+                    {% for assignment in assignments %}
+                        <li>
+                            <strong>{{ assignment.title }}</strong> - Due on {{ assignment.due_date }}
+                            <span class="priority">Priority: {{ assignment.priority }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-assignments">No assignments available. Add one above!</p>
+            {% endif %}
+        </div>
+
+        <!-- Back to Assignments Link -->
+        <a href="/assignments/" class="btn-submit back-home-button">Back to Assignments</a>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

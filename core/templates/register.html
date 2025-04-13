@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Outer Centered Container -->
+    <div class="container">
+        <h1 class="form-title">CREATE ACCOUNT</h1>
+
+        <!-- Inner Form Container -->
+        <div class="form-container">
+            <!-- Display global error messages -->
+            {% if messages %}
+                <div class="error-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="POST" id="register-form">
+                {% csrf_token %}
+
+                <!-- Username Field -->
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <p class="error-message" id="username-error"></p>
+
+                <!-- Email Field -->
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <p class="error-message" id="email-error"></p>
+
+                <!-- Password Field -->
+                <input type="password" id="password1" name="password1" placeholder="Enter your password" required>
+                <p class="error-message" id="password1-error"></p>
+
+                <!-- Confirm Password Field -->
+                <input type="password" id="password2" name="password2" placeholder="Reconfirm your password" required>
+                <p class="error-message" id="password2-error"></p>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">SIGN UP</button>
+            </form>
+
+            <!-- Login Link -->
+            <p class="login-link">Already have an account? <a href="/login/">Login here</a>.</p>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Outer Centered Container -->
+    <div class="container">
+        <h1 class="form-title">Welcome, {{ user.username }}!</h1>
+
+        <!-- Inner Form Container -->
+        <div class="form-container">
+            <!-- Display global error messages -->
+            {% if messages %}
+                <div class="error-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Assignments Section -->
+            <div class="assignments-container">
+                <h2 class="assignments-header">Upcoming Assignments</h2>
+                {% if assignments %}
+                    <ul class="assignments-list">
+                        {% for assignment in assignments %}
+                            <li>
+                                <strong>{{ assignment.title }}</strong> - Due on {{ assignment.due_date }}
+                                <span class="priority">Priority: {{ assignment.priority }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-assignments">No upcoming assignments. Add one below!</p>
+                {% endif %}
+            </div>
+
+            <!-- View All Assignments Button -->
+            <a href="/assignments/" class="btn-submit view-all-button">View All Assignments</a>
+
+            <!-- Logout Button -->
+            <a href="/logout/" class="btn-submit logout-button">Logout</a>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

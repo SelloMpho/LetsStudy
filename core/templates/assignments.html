@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Outer Centered Container -->
+    <div class="container">
+        <h1 class="form-title">Assignment Tracker</h1>
+
+        <!-- Add Assignment Button -->
+        <a href="/add-assignment/" class="btn-submit add-assignment-button">Add Assignment</a>
+
+        <!-- Assignments List -->
+        {% if assignments %}
+            <ul class="assignments-list">
+                {% for assignment in assignments %}
+                    <li>
+                        <strong>{{ assignment.title }}</strong> - Due on {{ assignment.due_date }}
+                        <span class="priority">Priority: {{ assignment.priority }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-assignments">No assignments available. Add one above!</p>
+        {% endif %}
+
+        <!-- Back to Home Button -->
+        <a href="/home/" class="btn-submit back-home-button">Back to Home</a>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

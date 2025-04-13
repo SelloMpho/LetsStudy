@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh;
+}
+
+/* Outer Centered Container */
+.container {
+    text-align: center; /* Center-align all content */
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Inner Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack components vertically */
+    align-items: center; /* Center components horizontally */
+    gap: 15px; /* Add spacing between components */
+}
+
+/* Form Title */
+.form-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%; /* Increase size to fit inside the container */
+    padding: 15px; /* Increase padding for larger fields */
+    margin-bottom: 15px; /* Add more spacing between fields */
+    border: 2px solid transparent; /* Transparent border */
+    background: linear-gradient(to right, #ffffff, #ffffff) padding-box,
+                linear-gradient(to right, #00b4d8, #00c853) border-box; /* Gradient border */
+    border-radius: 50px; /* Pill-shaped edges */
+    transition: box-shadow 0.3s ease;
+    outline: none; /* Remove default focus outline */
+    font-size: 1.1rem; /* Slightly larger font size */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 12px rgba(0, 180, 216, 0.5); /* Enhanced glow effect */
+}
+
+/* Buttons */
+.btn-submit {
+    display: inline-block;
+    width: 95%; /* Increase size to fit inside the container */
+    padding: 15px; /* Increase padding for larger buttons */
+    background: linear-gradient(to right, #00b4d8, #00c853); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Rounded edges */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for anchor tags */
+    font-size: 1.1rem; /* Slightly larger font size */
+    transition: background 0.3s ease;
+    margin-bottom: 20px;
+    align-self: center; /* Center the button */
+    text-align: center; /* Ensure text is centered inside the button */
+}
+
+.btn-submit:hover {
+    background: linear-gradient(to right, #0096c6, #00af38); /* Darker gradient on hover */
+}
+
+/* Links */
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: text-decoration 0.3s ease;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Error Messages */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    text-align: left; /* Align error messages to the left */
+    visibility: hidden; /* Hide by default */
+}
+
+/* Assignments Container */
+.assignments-container {
+    width: 100%; /* Full width within the parent container */
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    background: #f9f9f9; /* Light background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Assignments Header */
+.assignments-header {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Assignments List */
+.assignments-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.assignments-list li {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priority {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* No Assignments Message */
+.no-assignments {
+    color: #666;
+    margin-bottom: 10px;
+}
